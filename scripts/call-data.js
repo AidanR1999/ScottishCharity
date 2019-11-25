@@ -34,7 +34,6 @@ $.getConstId = function(constCode) {
             data.forEach(obj => {
                 if(obj.ConstituencyCode == constCode) {
                     $.getConstMSPs(obj.ID);
-                    continue;
                 }
             });
         }
@@ -54,11 +53,41 @@ $.getConstMSPs = function(constId) {
                     members.push(obj);
                 }
             });
-            findLatestMember(members);
+            var member = findLatestMember(members);
+            memberId = member.PersonID;
+            $.getMSP(memberId);
         }
     })
 }
 
 function findLatestMember(members) {
-    console.log(members);
+    latestMember = members[0];
+
+    for(var i = 0; i < members.length; i++){
+        if(members[i].ValidUntilDate == null) {
+            latestMember = members[i];
+            break;
+        }
+        else if(members[i].ValidUntilDate > latestMember) {
+            latestMember = members[i];
+        }
+    }
+
+    return latestMember;
+}
+
+$.getMSP = function(memberId) {
+    $.ajax({
+        type: 'GET',
+        url: 'https://data.parliament.scot/api/members/' + memberId,
+        datatype: 'json',
+
+        success: function(member) {
+            displayMSP(member);
+        }
+    })
+}
+
+function displayMSP(member) {
+    console.log(member);
 }
