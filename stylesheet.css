@@ -143,3 +143,13 @@ hr {
 .bg-white {
     background-color: white;
 }
+
+.msp-img {
+    height: 30%;
+    width: 20%;
+    background-image: url("img/blank-profile-pic.png");
+}
+
+.msp {
+    display: none;
+}
