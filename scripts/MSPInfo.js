@@ -2,15 +2,21 @@ function getPostcode() {
     var postcode = document.getElementById('postcodeText').value;
 
     if(postcode === ""){
-        return null;
+        showError();
+        return null
     }
 
+    getJobData();
     $.findMSPInfo(postcode);
-
 }
 
 $.findMSPInfo = function(postcode) {
     $.getConstCode(postcode);
+}
+
+function showError() {
+    var textbox = document.getElementById("postcodeText");
+    textbox.className += " input-error";
 }
 
 $.getConstCode = function(postcode) {
@@ -20,7 +26,12 @@ $.getConstCode = function(postcode) {
         url: 'https://api.postcodes.io/scotland/postcodes/' + postcode,
         datatype: 'json',
         success: function(data) {
+            var textbox = document.getElementById("postcodeText");
+            textbox.className = "postcode-input";
             $.getConstId(data.result.codes.scottish_parliamentary_constituency)
+        },
+        error: function() {
+            showError();
         }
     });
 }

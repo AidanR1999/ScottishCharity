@@ -6,6 +6,9 @@
         <script src="scripts/navbar-reponsive.js"></script>
         <script src="scripts/MSPInfo.js"></script>
         <script src="scripts/JobsInfo.js"></script>
+        <script src="scripts/tab-menu.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script src="scripts/PayRatesInfo.js"></script>
     </head>
     <body>
         <header>
@@ -17,17 +20,17 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#getting-here">
+                  <a href="#yourarea">
                       <p class="nav-text">Your area</p>
                   </a>
                 </li>
                 <li>
-                  <a href="#cafe-menu">
+                  <a href="#aboutus">
                       <p class="nav-text">About us</p>
                   </a>
                 </li>
                 <li>
-                  <a href="#accomodation-info">
+                  <a href="#navbar">
                       <p class="nav-text">Home</p>
                   </a>
                 </li>
@@ -58,23 +61,71 @@
                 <h2>Find out about your area</h2>
                 <hr>
                 <form>
-                    <input id="postcodeText" type="text" placeholder="Enter your postcode">
-                    <button type="button" onclick="getPostcode(); getJobData()">Search</button>
+                    <input class="postcode-input" id="postcodeText" type="text" placeholder="Enter your postcode">
+                    <button class="postcode-button" type="button" autofocus="" onclick="getPostcode()">Search</button>
                 </form>
             </div>
        </section>
 
-       <section id="yourmsp" class="msp bg-white">
+       <section id="yourmsp" class="hidden bg-white">
         <div class="section">
           <h2>Your MSP</h2>
           <hr>
+
           <img id="msp-image" src="img/blank-profile-pic.png" width="30%"></img>
-          <p id="msp-name" class="msp-name">Lorem Ipsum</p>
-          <p id="msp-const">Constituency:</p>
-          <p id="msp-party">Party:</p>
-          <p id="msp-gender">Gender:</p>
-          <p id="msp-birthdate">Birthdate:</p>
+        
+          <div class="msp-details">
+            <p id="msp-name" class="msp-name">Lorem Ipsum</p>
+            <p id="msp-const">Constituency:</p>
+            <p id="msp-party">Party:</p>
+            <p id="msp-gender">Gender:</p>
+            <p id="msp-birthdate">Birthdate:</p>
+          </div>
         </div>
        </section>
+
+      <section id="accordion-menu" class="hidden bg-blue">
+        <div class="section">
+          <h2>Constituency Information</h2>
+          <hr>
+          <br>
+            <div class="tab">
+              <button class="tablinks active" onclick="openCity(event, 'Jobs')">Jobs</button>
+              <button class="tablinks" onclick="openCity(event, 'Healthcare')">Healthcare</button>
+              <button class="tablinks" onclick="openCity(event, 'Education')">Education</button>
+              <button class="tablinks" onclick="openCity(event, 'Social Care')">Social Care</button>
+            </div>
+
+            <div id="Jobs" class="tabcontent" style="display: block;">
+              <h2>Popular Jobs in Your Area</h2>
+              <hr>
+              <canvas id="topJobsChart" width="400" height="200"></canvas>
+              <br>
+              <h2>Weekly Occupation Pay Rates</h2>
+              <hr>
+              <select id="occupationSelect" onChange="getSocValue(this);"></select>
+              <canvas id="payRateChart" width="400" height="200"></canvas>
+            </div>
+
+            <div id="Healthcare" class="tabcontent">
+              <p>Coming soon!</p>
+              <canvas id="healthChart" width="400" height="400"></canvas>
+            </div>
+
+            <div id="Education" class="tabcontent">
+              <p>Coming soon!</p>
+              <canvas id="eduChart" width="400" height="400"></canvas>
+            </div>
+
+            <div id="Social Care" class="tabcontent">
+              <p>Coming soon!</p>
+              <canvas id="socialChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+      </section>
+
+      <footer>
+
+      </footer>
     </body>
 </html>
