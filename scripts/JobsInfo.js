@@ -62,6 +62,7 @@ function displayTopJobsGraph(data) {
 
     //defaults to most populous pay rate
     $.getPayRate(topJobs[0].socGroup);
+    smoothScroll();
 }
 
 function getTopJobs(jobsBreakdown) {
