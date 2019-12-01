@@ -28,13 +28,20 @@ function displayPayRateData(payRates) {
         datasets: [{
             data: graphValues,
             labels: graphLabels,
+            backgroundColor: 'rgba(255, 99, 132, 1)'
         }]
+        
     };
 
     //draw graph
     var myLineChart = new Chart(ctx, {
         type: 'line',
-        data: graphData
+        data: graphData,
+        options: {
+            legend: {
+                display: false
+            }
+        }
     });
 }
 

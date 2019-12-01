@@ -9,6 +9,7 @@
         <script src="scripts/tab-menu.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         <script src="scripts/PayRatesInfo.js"></script>
+        <script src="scripts/button-scroll.js"></script>
     </head>
     <body>
         <header>
@@ -62,8 +63,9 @@
                 <hr>
                 <form>
                     <input class="postcode-input" id="postcodeText" type="text" placeholder="Enter your postcode">
-                    <button class="postcode-button" type="button" autofocus="" onclick="getPostcode()">Search</button>
+                    <button class="postcode-button" id="postcode-button" type="button" autofocus="" onclick="getPostcode();">Search</button>
                 </form>
+                <br>
             </div>
        </section>
 
@@ -101,9 +103,9 @@
               <hr>
               <canvas id="topJobsChart" width="400" height="200"></canvas>
               <br>
-              <h2>Weekly Occupation Pay Rates</h2>
+              <h2>Weekly Earning by Occupation</h2>
               <hr>
-              <select id="occupationSelect" onChange="getSocValue(this);"></select>
+              <select id="occupationSelect" class="postcode-input" onChange="getSocValue(this);"></select>
               <canvas id="payRateChart" width="400" height="200"></canvas>
             </div>
 
@@ -124,8 +126,10 @@
         </div>
       </section>
 
-      <footer>
-
-      </footer>
+      <section class="bg-white" id="footer">
+          <div class="section footer">
+            <p style="font-style: italic;">Copyright &copy; 2019 Aidan Rooney</p>
+          </div>
+        </section>
     </body>
 </html>
