@@ -183,6 +183,7 @@ function rearangeMspName(name) {
 }
 
 //formats msp birthday to correct format to string
+//code snippet from https://stackoverflow.com/questions/3552461/how-to-format-a-javascript-date
 function formatDate(date) {
     //all month names
     var monthNames = [
@@ -199,10 +200,10 @@ function formatDate(date) {
   
     //return full string, using month index to get month name
     return day + ' ' + monthNames[monthIndex] + ' ' + year;
-  }
+}
   
-  //gets the relationship beteween member and party
-  $.getMemParty = function(member) {
+//gets the relationship beteween member and party
+$.getMemParty = function(member) {
     $.ajax({
         type: 'GET',
         url: 'https://data.parliament.scot/api/memberparties/',
@@ -219,10 +220,10 @@ function formatDate(date) {
             });
         }
     })
-  }
+}
 
-  //gets the party information of the msp using party id
-  $.getParty = function(memParty) {
+//gets the party information of the msp using party id
+$.getParty = function(memParty) {
     $.ajax({
         type: 'GET',
         url: 'https://data.parliament.scot/api/parties/' + memParty.PartyID,
@@ -233,10 +234,10 @@ function formatDate(date) {
             displayPartyName(party);
         }
     })
-  }
+}
 
-  //displays msp party name using party object
-  function displayPartyName(party) {
+//displays msp party name using party object
+function displayPartyName(party) {
     //set label to party name
     $('#msp-party').text("Party: " + party.ActualName);
-  }
+}
