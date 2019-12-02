@@ -156,9 +156,12 @@ hr {
 .hidden {
     display: none;
 }
+.msp{
+  padding: 0 20% 8% 20%; 
+}
 
 .msp-details {
-    float: right;
+  float:right;
 }
 
  /* Style the tab */

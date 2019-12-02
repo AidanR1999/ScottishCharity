@@ -1,3 +1,6 @@
+//scrolls the page down to your msp page on button click
+//code snippet from https://stackoverflow.com/questions/18071046/smooth-scroll-to-specific-div-on-click
+
 window.smoothScroll = function() {
     var target = document.getElementById('yourmsp');
     var scrollContainer = target;

@@ -1,4 +1,6 @@
-function openCity(evt, cityName) {
+//deals with tabbed menu
+//code snippet from https://www.w3schools.com/howto/howto_js_tabs.asp
+function openCity(evt, industry) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -15,6 +17,6 @@ function openCity(evt, cityName) {
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(industry).style.display = "block";
   evt.currentTarget.className += " active";
 } 

@@ -2,8 +2,8 @@
     <title>Scottish Charity</title>
     <head>
         <link type="text/css" href="stylesheet.css" rel="stylesheet">
+        <!--SCRIPTS REQUIRED-->
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-        <script src="scripts/navbar-reponsive.js"></script>
         <script src="scripts/MSPInfo.js"></script>
         <script src="scripts/JobsInfo.js"></script>
         <script src="scripts/tab-menu.js"></script>
@@ -12,7 +12,9 @@
         <script src="scripts/button-scroll.js"></script>
     </head>
     <body>
+      <!--Header-->
         <header>
+          <!--Navbar-->
             <nav>
               <ul>
                 <li>
@@ -46,6 +48,7 @@
             </div>
         </header>
 
+        <!--About us-->
         <section id="aboutus" class="bg-white">
             <div class="section">
                 <h2>About us</h2>
@@ -57,6 +60,7 @@
             </div>
         </section>
 
+        <!--Your area-->
         <section id="yourarea" class="bg-blue">
             <div class="section">
                 <h2>Find out about your area</h2>
@@ -69,11 +73,13 @@
             </div>
        </section>
 
+       <!--Your msp-->
        <section id="yourmsp" class="hidden bg-white">
         <div class="section">
           <h2>Your MSP</h2>
           <hr>
 
+          <div class="msp">
           <img id="msp-image" src="img/blank-profile-pic.png" width="30%"></img>
         
           <div class="msp-details">
@@ -83,9 +89,12 @@
             <p id="msp-gender">Gender:</p>
             <p id="msp-birthdate">Birthdate:</p>
           </div>
+          <br>
+        </div>
         </div>
        </section>
 
+       <!--Accordian menu for different industries-->
       <section id="accordion-menu" class="hidden bg-blue">
         <div class="section">
           <h2>Constituency Information</h2>
@@ -98,27 +107,31 @@
               <button class="tablinks" onclick="openCity(event, 'Social Care')">Social Care</button>
             </div>
 
+            <!--JOBS-->
             <div id="Jobs" class="tabcontent" style="display: block;">
-              <h2>Popular Jobs in Your Area</h2>
+              <h2>Population Distribution of Industries</h2>
               <hr>
-              <canvas id="topJobsChart" width="400" height="200"></canvas>
+              <canvas id="topJobsChart" width="400" height="400"></canvas>
               <br>
-              <h2>Weekly Earning by Occupation</h2>
+              <h2>Weekly Earnings by Occupation</h2>
               <hr>
               <select id="occupationSelect" class="postcode-input" onChange="getSocValue(this);"></select>
               <canvas id="payRateChart" width="400" height="200"></canvas>
             </div>
 
+            <!--HEALTHCARE-->
             <div id="Healthcare" class="tabcontent">
               <p>Coming soon!</p>
               <canvas id="healthChart" width="400" height="400"></canvas>
             </div>
 
+            <!--EDUCATION-->
             <div id="Education" class="tabcontent">
               <p>Coming soon!</p>
               <canvas id="eduChart" width="400" height="400"></canvas>
             </div>
 
+            <!--SOCIAL CARE-->
             <div id="Social Care" class="tabcontent">
               <p>Coming soon!</p>
               <canvas id="socialChart" width="400" height="400"></canvas>
@@ -126,6 +139,7 @@
         </div>
       </section>
 
+      <!--Footer-->
       <section class="bg-white" id="footer">
           <div class="section footer">
             <p style="font-style: italic;">Copyright &copy; 2019 Aidan Rooney</p>
