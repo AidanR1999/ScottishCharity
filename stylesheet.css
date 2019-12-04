@@ -11,6 +11,10 @@ nav {
     overflow: hidden;
 }
 
+div {
+  overflow:auto;
+}
+
 nav a img {
     height: 5em;
     width: 7em;
